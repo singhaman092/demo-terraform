@@ -12,13 +12,11 @@ phases:
   pre_build:
     commands:
       - git clone https://github.com/singhaman092/demo-terraform
-    finally:
-      - echo This always runs even if the login command fails
+      - cd demo-terraform
   build:
     commands:
-      - echo Entered the build phase...
-    finally:
-      - echo This always runs even if the install command fails
+      - terraform init -reconfigure
+      - terraform plan -out tfstate
   post_build:
     commands:
       - echo Entered the post_build phase...
