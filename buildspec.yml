@@ -19,4 +19,4 @@ phases:
       - terraform plan -out tfstate
   post_build:
     commands:
-      - echo Entered the post_build phase...
+      - aws s3 cp tfstate s3://tf-state-aman-artifacts
