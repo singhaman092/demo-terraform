@@ -12,8 +12,8 @@ provider "aws" {
   region = "us-east-1"
   alias = "new"
   # shared_credentials_file = "C:\\Users\\DESKTOP\\.aws\\credentials"
-  assume_role {
-    role_arn = "arn:aws:iam::777028848909:role/tf-role"
-  }
+  # assume_role {
+  #   role_arn = "arn:aws:iam::777028848909:role/tf-role"
+  # }
   # profile = "new"
 }
