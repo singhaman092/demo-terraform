@@ -11,8 +11,8 @@ phases:
       - terraform --version
   pre_build:
     commands:
-      - git clone {$REPO_LINK}
-      - cd {$REPO_NAME}
+      - git clone $REPO_LINK
+      - cd $REPO_NAME
   build:
     commands:
       - terraform init -reconfigure
