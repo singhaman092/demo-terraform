@@ -4,19 +4,19 @@ phases:
   install:
     commands:
       # install terraform binary
-      - curl -s -qL -o terraform_install.zip https://releases.hashicorp.com/terraform/$TF_VERSION/terraform_$TF_VERSION_linux_amd64.zip
+      - curl -s -qL -o terraform_install.zip https://releases.hashicorp.com/terraform/{$TF_VERSION}/terraform_{$TF_VERSION}_linux_amd64.zip
       - unzip terraform_install.zip -d /usr/bin/
       - chmod +x /usr/bin/terraform
     finally:
       - terraform --version
   pre_build:
     commands:
-      - git clone $REPO_LINK
-      - cd $REPO_NAME
+      - git clone {$REPO_LINK}
+      - cd {$REPO_NAME}
   build:
     commands:
       - terraform init -reconfigure
       - terraform plan -out tfstate
   post_build:
     commands:
-      - aws s3 cp tfstate s3://$ARTIFACT_BUCKET
+      - aws s3 cp tfstate s3://{$ARTIFACT_BUCKET}
