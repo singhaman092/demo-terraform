@@ -19,4 +19,4 @@ phases:
       - terraform plan -out tfstate
   post_build:
     commands:
-      - aws s3 cp tfstate s3://{$ARTIFACT_BUCKET}
+      - aws s3 cp tfstate s3://$ARTIFACT_BUCKET
