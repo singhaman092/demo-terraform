@@ -2,6 +2,10 @@ resource "aws_instance" "foo" {
   ami           = "ami-0d5eff06f840b45e9" # us-west-2
   instance_type = "t2.micro"
 }
+resource "aws_instance" "bar" {
+  ami           = "ami-0d5eff06f840b45e9" # us-west-2
+  instance_type = "t2.micro"
+}
 
 
 
